@@ -1,6 +1,6 @@
 //rahhh
 let nameList = [];
-fetch(chrome.runtime.getURL('first-names.txt')
+fetch(chrome.runtime.getURL('first-names.txt'))
   .then(result => result.text())
   .then(text => {
     nameList = text.split(/\r?\n/).filter(Boolean); // array of names
@@ -9,7 +9,7 @@ fetch(chrome.runtime.getURL('first-names.txt')
   })
   .catch(error => {
     console.error("Failed to load name list", error);
-  }));
+  });
 //to toggle it on and off
 chrome.storage.onChanged.addListener((changes) => {
     if (changes.enabled) {
@@ -23,6 +23,7 @@ chrome.storage.onChanged.addListener((changes) => {
 
 
 //MutationObserver function for dynamically loaded pages
+//Should add some kind of cooldown
 function observeDOMChanges(nameList) {
     const observer = new MutationObserver(() => {
         censorNames(nameList);
@@ -47,10 +48,11 @@ function censorNames(nameList){
       // /(W+) keeps punctuation but allows word-by-word detection
       
     let changed = false;
+      
     const newWords = words.map(word => {
       if (nameList.includes(word)) {
         changed = true;
-        return `<span style="background:black">${word}</span>`;
+        return `<span style="background:black;color:black">${word}</span>`;
       }
       return word;
     });
