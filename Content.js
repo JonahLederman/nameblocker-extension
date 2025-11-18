@@ -1,16 +1,21 @@
 //rahhh
 
 const visibletext = document.body.innerText;
-const nameList = fetch('https://github.com/first-names.txt')
-.then(response => response.json())
-      .then(data => {
-        console.log('User created:', data);
-      })
-      .catch(error => {
-        console.error('Error creating user:', error);
-      });
+fetch('https://raw.githubusercontent.com/Ev-ring/nameblocker-extension/main/first-names.txt')
+  .then(res => res.text())
+  .then(text => {
+    const names = text;
 
 for (txt of visibletext){
     if (txt == 
 }
-  
+
+function censorNames(wordList){
+//--START OF FUNCTION--
+   const walker = document.createTreeWalker(
+        document.body,
+        NodeFilter.SHOW_TEXT,
+        null
+    );   
+
+}
