@@ -1,6 +1,6 @@
 //rahhh
 let nameList = [];
-fetch('https://raw.githubusercontent.com/Ev-ring/nameblocker-extension/main/first-names.txt')
+fetch(chrome.runtime.getURL('first-names.txt')
   .then(result => result.text())
   .then(text => {
     nameList = text.split(/\r?\n/).filter(Boolean); // array of names
