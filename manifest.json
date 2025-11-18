@@ -3,6 +3,10 @@
   "name": "CensorNames",
   "version": "1.0",
   "description": "Automatically blacks out names on webpages.",
+  "icons": {
+  "2": "icons/2.png",
+
+  },
   "permissions": [
     "storage"
   ],
@@ -18,6 +22,6 @@
   ],
   "action": {
     "default_popup": "popup.html",
-    "default_icon": "icons/48.png"
+    "default_icon": "icons/2.png"
   }
 }
