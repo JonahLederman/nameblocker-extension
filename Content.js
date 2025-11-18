@@ -9,7 +9,7 @@ fetch(chrome.runtime.getURL('first-names.txt')
   })
   .catch(error => {
     console.error("Failed to load name list", error);
-  });
+  }));
 //to toggle it on and off
 chrome.storage.onChanged.addListener((changes) => {
     if (changes.enabled) {
